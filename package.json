@@ -10,7 +10,7 @@
     "watch": "cross-env NODE_ENV=development webpack-dev-server -w --hot --silent --port 8080",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "nodemon http/index.js -- -d",
-    "start": "cross-env PORT=80 node http/index.js -p"
+    "start": "cross-env PORT=5000 node http/index.js -p"
   },
   "dependencies": {
     "fastify": "^3.8.0",
