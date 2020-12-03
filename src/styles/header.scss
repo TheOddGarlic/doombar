@@ -1,0 +1,100 @@
+/*
+ * Copyright (c) 2020 sanana the skenana
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+.container {
+  height: 72px;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+  position: relative;
+
+  img {
+    height: 100%;
+    margin: 10px 2px 4px 4px;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  > a {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    height: 100%;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  nav {
+    flex-direction: column;
+    background-color: #202020;
+    position: absolute;
+    right: 32px;
+    top: 72px;
+    display: none;
+    margin-left: auto;
+
+    a {
+      color: inherit;
+      padding: 8px 16px;
+
+      + a {
+        border-top: 1px #000 solid;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .container h1 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-top: 4px;
+    font-size: 26px;
+    font-family: 'Discord', sans-serif;
+    margin-right: 8px;
+    font-weight: inherit;
+  }
+}
+
+@media screen and (min-width: 1010px) {
+  .container nav {
+    background-color: transparent;
+    position: initial;
+    flex-direction: row;
+    display: block;
+
+    a {
+      margin-left: 24px;
+      padding: 0;
+      + a {
+        border: none;
+      }
+    }
+  }
+}
