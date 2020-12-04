@@ -27,6 +27,8 @@ const { join } = require('path')
 
 const motds = require("./motds.json");
 
+fastify.register(require('fastify-compress'))
+
 // Robots Exclusion Protocol
 fastify.get('/robots.txt', (_, reply) => reply.type('text/plain').send(createReadStream(join(__dirname, 'robots.txt'))))
 
