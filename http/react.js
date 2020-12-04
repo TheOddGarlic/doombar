@@ -20,6 +20,7 @@
  * SOFTWARE.
  */
 
+const { existsSync, createReadStream } = require('fs')
 const mime = require('mime-types')
 
 const React = require('react')
@@ -36,7 +37,7 @@ module.exports = (request, reply) => {
 
   if (request.raw.url.startsWith('/dist/')) {
     const target = request.raw.url.split('/')[2]
-    const file = join(__dirname, '..', 'dist', target)
+    const file = require("path").join(__dirname, '..', 'dist', target)
     if (existsSync(file) && target && target !== '.' && target !== '..') {
       reply.header('content-type', mime.lookup(file) || 'application/octet-stream')
       return reply.send(createReadStream(file))
