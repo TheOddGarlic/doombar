@@ -45,7 +45,6 @@ function App () {
         <meta property='og:site_name' content='donutbar'/>
         <meta property='og:description' content='Muz playing around'/>
         <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-        <link href='https://cdn.jsdelivr.net/npm/typeface-jetbrains-mono@1.0.5/dist/index.min.css' rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
       </Helmet>
       <Header />
       <Wouter />
