@@ -50,9 +50,6 @@ const baseConfig = {
   resolve: {
     extensions: [ '.js', '.jsx' ],
     alias: {
-      'react': 'preact/compat',
-      'react-dom/test-utils': 'preact/test-utils',
-      'react-dom': 'preact/compat',
       '@components': resolve(__dirname, 'src', 'components'),
       '@styles': resolve(__dirname, 'src', 'styles'),
       '@assets': resolve(__dirname, 'src', 'assets'),
@@ -150,7 +147,7 @@ const baseConfig = {
   plugins: [
     new ManifestPlugin({
       writeToFileEmit: true,
-      fileName: resolve(__dirname, 'http-src', 'dist', 'manifest.json')
+      fileName: resolve(__dirname, 'http', 'dist', 'manifest.json')
     }),
     new MiniCSSExtractPlugin({
       filename: isDev ? '[name].css' : '[contenthash].css',
