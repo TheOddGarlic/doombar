@@ -40,5 +40,5 @@ fastify.get('/2bit', (_, reply) => reply.redirect(303, 'https://www.youtube.com/
 fastify.get('*', require('./react'))
 
 fastify.ready()
-  .then(() => fastify.listen(process.env.PORT || 6969))
+  .then(() => fastify.listen(process.env.PORT || 6969, '0.0.0.0'))
   .catch(e => fastify.log.error(e) && process.exit(1))
