@@ -30,7 +30,7 @@ function Header () {
   return (
     <header className={style.container}>
       <Link to='/'>
-        <img src={discordLogo} alt="Discord" />
+        <img src={discordLogo} alt="Discord" width="56px" height="55px" />
         <h1>Donutbar</h1>
       </Link>
       <nav>
