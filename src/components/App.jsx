@@ -35,6 +35,7 @@ function App () {
       <Helmet
         titleTemplate='%s • donutbar'
         defaultTitle='donutbar'>
+        <html lang="en" />
         <meta charSet='utf8'/>
         <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8'/>
         <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'/>
