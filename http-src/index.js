@@ -21,26 +21,30 @@
  */
 
 // Node
-const fastify = require('fastify')({ logger: true })
-const { createReadStream } = require('fs')
-const { join } = require('path')
+import fastify from 'fastify'
+import fastifyCompress from 'fastify-compress'
+import { createReadStream } from 'fs'
+import { join } from 'path'
 
-const motds = require("./motds.json");
+const fast = fastify({ logger: true })
 
-fastify.register(require('fastify-compress'))
+import motds from './motds.json'
+import react from './preact'
+
+fast.register(fastifyCompress)
 
 // Robots Exclusion Protocol
-fastify.get('/robots.txt', (_, reply) => reply.type('text/plain').send(createReadStream(join(__dirname, 'robots.txt'))))
+fast.get('/robots.txt', (_, reply) => reply.type('text/plain').send(createReadStream(join(__dirname, 'robots.txt'))))
 
 // Random MOTD Protocol
-fastify.get('/motd', (_, reply) => reply.type('text/plain').send(motds[~~(Math.random() * motds.length)]))
+fast.get('/motd', (_, reply) => reply.type('text/plain').send(motds[~~(Math.random() * motds.length)]))
 
 // Never Giving Up Protocol
-fastify.get('/2bit', (_, reply) => reply.redirect(303, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
+fast.get('/2bit', (_, reply) => reply.redirect(303, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 
 // React
-fastify.get('*', require('./react'))
+fast.get('*', react)
 
-fastify.ready()
-  .then(() => fastify.listen(process.env.PORT || 6969, '0.0.0.0'))
-  .catch(e => fastify.log.error(e) && process.exit(1))
+fast.ready()
+  .then(() => fast.listen(process.env.PORT || 6969, '0.0.0.0'))
+  .catch(e => fast.log.error(e) && process.exit(1))
