@@ -22,7 +22,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router } from 'wouter'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './components/App'
 
