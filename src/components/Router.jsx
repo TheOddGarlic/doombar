@@ -21,7 +21,7 @@
  */
 
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'wouter'
 import Helmet from 'react-helmet'
 
 import { Routes } from '@constants'
@@ -33,13 +33,13 @@ import NotFound from './NotFound/'
 function Wouter () {
   return (
     <Switch>
-      <Route path={Routes.HOME} exact>
+      <Route path={Routes.HOME}>
         <Helmet>
           <title>Home</title>
         </Helmet>
         <Home />
       </Route>
-      <Route path={Routes.ABOUT} exact>
+      <Route path={Routes.ABOUT}>
         <Helmet>
           <title>About</title>
         </Helmet>

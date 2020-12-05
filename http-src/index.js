@@ -20,15 +20,31 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router } from 'wouter'
+// Node
+import fastify from 'fastify';
+import fastifyCompress from 'fastify-compress';
+import { createReadStream } from 'fs'
+import { join } from 'path'
 
-import App from './components/App'
+import motds from '../http-src/motds.json'
+import react from './react';
 
-// Render React App
-if (process.env.NODE_ENV === 'production') {
-  ReactDOM.hydrate(<Router><App/></Router>, document.querySelector('#react-root'))
-} else {
-  ReactDOM.render(<Router><App/></Router>, document.querySelector('#react-root'))
-}
+const fast = fastify({ logger: true })
+
+fast.register(fastifyCompress)
+
+// Robots Exclusion Protocol
+fast.get('/robots.txt', (_, reply) => reply.type('text/plain').send(createReadStream(join(__dirname, '../http-src/robots.txt'))))
+
+// Random MOTD Protocol
+fast.get('/motd', (_, reply) => reply.type('text/plain').send(motds[~~(Math.random() * motds.length)]))
+
+// Never Giving Up Protocol
+fast.get('/2bit', (_, reply) => reply.redirect(303, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
+
+// React
+fast.get('*', react)
+
+fast.ready()
+  .then(() => fast.listen(process.env.PORT || 6969, '0.0.0.0'))
+  .catch(e => fast.log.error(e) && process.exit(1))
