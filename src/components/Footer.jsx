@@ -21,7 +21,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'wouter'
 
 import { Routes } from '@constants'
 
@@ -60,8 +60,8 @@ function Footer () {
         <span>Donutbar is not affiliated with Discord. Discord is a trademark of Discord Inc.</span>
       </div>
       <div className={style.section}>
-        <span><Link to={Routes.HOME}>Home</Link></span>
-        <span><Link to={Routes.ABOUT}>About</Link></span>
+        <span><Link href={Routes.HOME}>Home</Link></span>
+        <span><Link href={Routes.ABOUT}>About</Link></span>
         <span><a href={Routes.DISCORD} target='_blank' rel='noreferrer'>Discord Server</a></span>
       </div>
     </footer>

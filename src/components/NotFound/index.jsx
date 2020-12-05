@@ -22,7 +22,7 @@
 
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link } from 'wouter'
 import Container from '../Container'
 
 import { Routes } from '@constants'
@@ -31,7 +31,7 @@ function NotFound () {
   return (
     <Container>
       <h2>404 Not Found</h2>
-      <Link to={Routes.HOME}>Take me home.</Link>
+      <Link href={Routes.HOME}>Take me home.</Link>
     </Container>
   )
 }

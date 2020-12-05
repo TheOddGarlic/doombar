@@ -27,7 +27,8 @@ const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 
 const Helmet = require('react-helmet').default
-const { StaticRouter } = require('react-router')
+const { Router } = require('wouter/cjs')
+const staticLocationHook = require('wouter/cjs/static-location')
 
 const manifest = require('./dist/manifest.json')
 
@@ -45,18 +46,20 @@ module.exports = (request, reply) => {
   }
 
   // SSR
-  const context = {}
   const App = require('./dist/App').default
+  const hook = staticLocationHook(request.raw.url, { record: true })
+
   const html = ReactDOMServer.renderToString(
-    React.createElement(StaticRouter, {
-      location: request.raw.url,
-      context
+    React.createElement(Router, {
+      hook
     }, React.createElement(App, { server: true }))
   )
 
-  if (context.url) {
+  const finalPage = hook.history.slice(-1)[0];
+
+  if (finalPage != request.raw.url) {
     // Redirect
-    reply.raw.writeHead(302, { location: context.url })
+    reply.raw.writeHead(302, { location: finalPage })
     reply.raw.end()
   } else {
     // Send

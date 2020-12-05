@@ -20,7 +20,8 @@
  * SOFTWARE.
  */
 
-import { Link } from 'react-router-dom'
+import { Link } from 'wouter'
+import { Routes } from '@constants'
 import style from '@styles/header.scss'
 import React from 'react'
 import JoinButton from '@components/JoinButton'
@@ -29,7 +30,7 @@ import discordLogo from '@assets/discordWhite.svg'
 function Header () {
   return (
     <header className={style.container}>
-      <Link to='/'>
+      <Link href={Routes.HOME}>
         <img src={discordLogo} alt="Discord" width="56px" height="55px" />
         <h1>Donutbar</h1>
       </Link>
