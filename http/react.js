@@ -27,8 +27,8 @@ const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 
 const Helmet = require('react-helmet').default
-const { Router } = require('wouter/cjs')
-const staticLocationHook = require('wouter/cjs/static-location')
+const { Router } = require('wouter')
+const staticLocationHook = require('wouter/static-location')
 
 const manifest = require('./dist/manifest.json')
 
