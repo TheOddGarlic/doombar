@@ -9,10 +9,12 @@
   "scripts": {
     "watch": "cross-env NODE_ENV=development webpack-dev-server -w --hot --silent --port 8080",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "nodemon http/index.js -- -d",
-    "start": "cross-env PORT=5000 node http/index.js -p"
+    "dev": "backpack",
+    "start": "cross-env PORT=5000 node build/index.js -p",
+    "build:server": "backpack build"
   },
   "dependencies": {
+    "backpack-core": "^0.8.4",
     "fastify": "^3.8.0",
     "fastify-compress": "^3.4.0",
     "mime-types": "^2.1.27",
