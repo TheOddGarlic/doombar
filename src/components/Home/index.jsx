@@ -20,8 +20,6 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-
 import JoinButton from '@components/JoinButton'
 import Container from '../Container'
 
@@ -36,5 +34,4 @@ function Home () {
   )
 }
 
-Home.displayName = 'Home'
-export default React.memo(Home)
+export default Home

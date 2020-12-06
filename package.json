@@ -16,10 +16,9 @@
     "fastify": "^3.8.0",
     "fastify-compress": "^3.4.0",
     "mime-types": "^2.1.27",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "wouter": "^2.6.0"
+    "preact": "^10.5.7",
+    "preact-render-to-string": "^5.1.12",
+    "wouter-preact": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

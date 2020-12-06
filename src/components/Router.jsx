@@ -20,9 +20,7 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-import { Switch, Route } from 'wouter'
-import Helmet from 'react-helmet'
+import { Switch, Route } from 'wouter-preact'
 
 import { Routes } from '@constants'
 
@@ -34,26 +32,16 @@ function Wouter () {
   return (
     <Switch>
       <Route path={Routes.HOME}>
-        <Helmet>
-          <title>Home</title>
-        </Helmet>
         <Home />
       </Route>
       <Route path={Routes.ABOUT}>
-        <Helmet>
-          <title>About</title>
-        </Helmet>
         <About />
       </Route>
       <Route>
-        <Helmet>
-          <title>404 Not Found</title>
-        </Helmet>
         <NotFound />
       </Route>
     </Switch>
   )
 }
 
-Wouter.displayName = 'Wouter'
-export default React.memo(Wouter)
+export default Wouter

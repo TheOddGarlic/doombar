@@ -20,9 +20,7 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-
-import { Link } from 'wouter'
+import { Link } from 'wouter-preact'
 import Container from '../Container'
 
 import { Routes } from '@constants'
@@ -36,5 +34,4 @@ function NotFound () {
   )
 }
 
-NotFound.displayName = 'NotFound'
-export default React.memo(NotFound)
+export default NotFound

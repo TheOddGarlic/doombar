@@ -20,9 +20,6 @@
  * SOFTWARE.
  */
 
-import Helmet from 'react-helmet'
-import React from 'react'
-
 import Wouter from './Router'
 import Header from './Header'
 import Footer from './Footer'
@@ -32,21 +29,6 @@ import '@styles/app.scss'
 function App () {
   return (
     <>
-      <Helmet
-        titleTemplate='%s • donutbar'
-        defaultTitle='donutbar'>
-        <html lang="en" />
-        <meta charSet='utf8'/>
-        <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8'/>
-        <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'/>
-        <meta property='description' content='Muz playing around'/>
-
-        <meta property='og:locale' content='tr_TR'/>
-        <meta property='og:title' content='donutbar'/>
-        <meta property='og:site_name' content='donutbar'/>
-        <meta property='og:description' content='Muz playing around'/>
-        <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-      </Helmet>
       <Header />
       <Wouter />
       <Footer />
@@ -54,5 +36,4 @@ function App () {
   )
 }
 
-App.displayName = 'App'
-export default React.memo(App)
+export default App

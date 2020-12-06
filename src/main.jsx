@@ -20,15 +20,15 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router } from 'wouter'
+import "preact/debug";
+import { hydrate, render } from 'preact'
+import { Router } from 'wouter-preact'
 
 import App from './components/App'
 
 // Render React App
 if (process.env.NODE_ENV === 'production') {
-  ReactDOM.hydrate(<Router><App/></Router>, document.querySelector('#react-root'))
+  hydrate(<Router><App/></Router>, document.querySelector('#root'))
 } else {
-  ReactDOM.render(<Router><App/></Router>, document.querySelector('#react-root'))
+  render(<Router><App/></Router>, document.querySelector('#root'))
 }

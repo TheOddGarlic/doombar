@@ -20,8 +20,8 @@
  * SOFTWARE.
  */
 
-import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'wouter'
+import { useState, useEffect, useRef } from 'preact/hooks'
+import { Link } from 'wouter-preact'
 
 import { Routes } from '@constants'
 
@@ -68,5 +68,4 @@ function Footer () {
   )
 }
 
-Footer.displayName = 'Footer'
-export default React.memo(Footer)
+export default Footer

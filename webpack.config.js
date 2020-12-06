@@ -69,7 +69,7 @@ const baseConfig = {
               cacheDirectory: true,
               cacheCompression: true,
               compact: true,
-              presets: [ '@babel/react' ],
+              presets: [ ['@babel/react', { runtime: 'automatic', importSource: 'preact' }] ],
               plugins: [
                 '@babel/plugin-syntax-dynamic-import',
                 '@babel/plugin-proposal-object-rest-spread',

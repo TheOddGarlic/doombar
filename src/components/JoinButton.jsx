@@ -22,7 +22,6 @@
 
 import { Routes } from '@constants'
 import style from '@styles/joinButton.scss'
-import React from 'react'
 
 function JoinButton ({ children, className }) {
   return (
@@ -32,5 +31,4 @@ function JoinButton ({ children, className }) {
   )
 }
 
-JoinButton.displayName = 'Header'
-export default React.memo(JoinButton)
+export default JoinButton

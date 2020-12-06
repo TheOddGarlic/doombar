@@ -20,8 +20,6 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-
 import style from '@styles/app.scss'
 
 function Container ({ children, className }) {
@@ -32,5 +30,4 @@ function Container ({ children, className }) {
   )
 }
 
-Container.displayName = 'Container'
-export default React.memo(Container)
+export default Container

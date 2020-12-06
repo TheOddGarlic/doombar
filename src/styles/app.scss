@@ -29,7 +29,7 @@
 
 * { box-sizing: border-box; }
 
-html, body, :global(#react-root) {
+html, body, :global(#root) {
   background-color: #2C2F33;
   margin: 0;
   padding: 0;
@@ -40,12 +40,12 @@ html, body, :global(#react-root) {
   height: 100%;
 }
 
-:global(#react-root), body {
+:global(#root), body {
   display: flex;
   flex-direction: column;
 }
 
-main, :global(#react-root) {
+main, :global(#root) {
   flex: 1;
 }
 

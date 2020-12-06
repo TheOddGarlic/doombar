@@ -20,8 +20,6 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-
 import Container from '../Container'
 
 import style from '@styles/home.scss'
@@ -35,5 +33,4 @@ function About () {
   )
 }
 
-About.displayName = 'About'
-export default React.memo(About)
+export default About

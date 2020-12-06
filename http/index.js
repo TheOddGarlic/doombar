@@ -38,8 +38,8 @@ fastify.get('/motd', (_, reply) => reply.type('text/plain').send(motds[~~(Math.r
 // Never Giving Up Protocol
 fastify.get('/2bit', (_, reply) => reply.redirect(303, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 
-// React
-fastify.get('*', require('./react'))
+// Preact
+fastify.get('*', require('./preact'))
 
 fastify.ready()
   .then(() => fastify.listen(process.env.PORT || 6969, '0.0.0.0'))
