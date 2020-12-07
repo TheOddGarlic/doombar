@@ -33,7 +33,7 @@ fastify.register(require('fastify-compress'))
 fastify.get('/robots.txt', (_, reply) => reply.type('text/plain').send(createReadStream(join(__dirname, 'robots.txt'))))
 
 // Random MOTD Protocol
-fastify.get('/motd', (_, reply) => reply.type('text/plain').send(motds[~~(Math.random() * motds.length)]))
+fastify.get('/motd', (_, reply) => reply.type('text/plain').send(motds[~~(Math.random() * motds.length)].replace(/donutbar/ig, "Doombar")))
 
 // Never Giving Up Protocol
 fastify.get('/2bit', (_, reply) => reply.redirect(303, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'))

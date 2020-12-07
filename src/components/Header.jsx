@@ -31,7 +31,7 @@ function Header () {
     <header className={style.container}>
       <Link href={Routes.HOME}>
         <img src={discordLogo} alt="Discord" width="56" height="55" />
-        <h1>Donutbar</h1>
+        <h1>Doombar</h1>
       </Link>
       <nav>
         {/* <Link to={Routes.INSTALLATION}>Installation</Link>

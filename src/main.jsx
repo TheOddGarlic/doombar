@@ -20,7 +20,6 @@
  * SOFTWARE.
  */
 
-import "preact/debug";
 import { hydrate, render } from 'preact'
 import { Router } from 'wouter-preact'
 

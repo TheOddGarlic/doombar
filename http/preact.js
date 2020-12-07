@@ -81,7 +81,7 @@ const renderHtml = (html) => `
       <meta property='og:site_name' content='donutbar'>
       <meta property='og:description' content='Muz playing around'>
 
-      <title>Donutbar</title>
+      <title>DOOMBAR</title>
       <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
       ${manifest['styles.css'] ? `<link rel='stylesheet' href='${manifest['styles.css']}'/>` : ''}
     </head>

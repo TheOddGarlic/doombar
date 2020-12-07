@@ -20,20 +20,21 @@
  * SOFTWARE.
  */
 
-// import MemberCount from '@components/MemberCount'
-import JoinButton from '@components/JoinButton'
-import Container from '@components/Container'
-
-import style from '@styles/home.scss'
-
-function Home () {
-  return (
-    <Container>
-      <h2 className={style.headline}>Coolest server on the planet.</h2>
-      {/* <MemberCount invite="ZFrc37P" className={style.memberCountHome} /> */}
-      <JoinButton className={style.joinButtonHome}>Join Now For Free!</JoinButton>
-    </Container>
-  )
+.countContainer {
+  text-align: center;
+  span {
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    .status::before {
+      &.statusOnline {background-color: #43b581;}
+      content: '';
+      width: 8px;
+      height: 8px;
+      margin-left: 8px;
+      margin-right: 8px;
+      border-radius: 2px;
+      transform: rotate(45deg);
+    }
+  }
 }
-
-export default Home

@@ -20,25 +20,24 @@
  * SOFTWARE.
  */
 
-import { useState, useEffect, useRef } from 'preact/hooks'
-import { Link } from 'wouter-preact'
+import { useEffect, useState, useRef } from 'preact/hooks'
 
-import { Routes } from '@constants'
+import style from '@styles/memberCount.scss'
 
-import style from '@styles/footer.scss'
-
-function Footer () {
-  let [motd, setMotd] = useState('')
+function MemberCount ({ className, invite }) {
+  let [memberCount, setMemberCount] = useState(0)
+  let [onlineCount, setOnlineCount] = useState(0)
   let ignore = useRef()
 
   useEffect(() => {
     if (!ignore.current) {
       var xhr = new XMLHttpRequest()
-      xhr.open("GET", "/motd", true)
-      xhr.onload = function () {
+      xhr.open("GET", `https://discord.com/api/v8/invites/${invite}?with_counts=true`, true)
+      xhr.onload = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
-            setMotd(xhr.responseText)
+            setMemberCount(JSON.parse(xhr.responseText).approximate_member_count)
+            setOnlineCount(JSON.parse(xhr.responseText).approximate_presence_count)
           } else {
             console.error(xhr.statusText)
           }
@@ -51,20 +50,14 @@ function Footer () {
 
       ignore.current = true;
     }
-  }, [motd])
+  }, [memberCount, onlineCount])
 
   return (
-    <footer class={style.container}>
-      <div class={style.section}>
-        <span>{ motd ? motd : 'MOTD loading...' }</span>
-      </div>
-      <div class={style.section}>
-        <span><Link href={Routes.HOME}>Home</Link></span>
-        <span><Link href={Routes.ABOUT}>About</Link></span>
-        <span><a href={Routes.DISCORD} target='_blank' rel='noreferrer'>Discord Server</a></span>
-      </div>
-    </footer>
+    <div class={[style.countContainer, className ].filter(Boolean).join(' ')}>
+      <span><div class={`${style.status} ${style.statusOnline}`}>x</div>{ onlineCount } Online</span>
+      <span><div class={style.status}>x</div>{ memberCount } Members</span>
+    </div>
   )
 }
 
-export default Footer
+export default MemberCount
