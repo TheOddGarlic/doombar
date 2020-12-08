@@ -77,8 +77,8 @@ const renderHtml = (html) => `
       <meta property='description' content='Muz playing around'>
 
       <meta property='og:locale' content='tr_TR'>
-      <meta property='og:title' content='donutbar'>
-      <meta property='og:site_name' content='donutbar'>
+      <meta property='og:title' content='doombar'>
+      <meta property='og:site_name' content='doombar'>
       <meta property='og:description' content='Muz playing around'>
 
       <title>DOOMBAR</title>
